@@ -18,7 +18,7 @@
 #define INIT_STATE 1
 #define RED_STATE 2
 #define GREEN_STATE 3
-#define AMBER_STATE 4
+#define YELLOW_STATE 4
 
 #define MODE_1 11
 #define MODE_2 12
@@ -26,5 +26,8 @@
 #define MODE_4 14
 
 extern int LED_STATE [2];
+extern int RED_DURATION;
+extern int YELLOW_DURATION;
+extern int GREEN_DURATION;
 
 #endif /* INC_GLOBAL_H_ */

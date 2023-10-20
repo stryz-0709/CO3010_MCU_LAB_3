@@ -60,14 +60,14 @@ void Error_Handler(void);
 /* Private defines -----------------------------------------------------------*/
 #define RED1_Pin GPIO_PIN_1
 #define RED1_GPIO_Port GPIOA
-#define AMBER1_Pin GPIO_PIN_2
-#define AMBER1_GPIO_Port GPIOA
+#define YELLOW1_Pin GPIO_PIN_2
+#define YELLOW1_GPIO_Port GPIOA
 #define GREEN1_Pin GPIO_PIN_3
 #define GREEN1_GPIO_Port GPIOA
 #define RED2_Pin GPIO_PIN_4
 #define RED2_GPIO_Port GPIOA
-#define AMBER2_Pin GPIO_PIN_5
-#define AMBER2_GPIO_Port GPIOA
+#define YELLOW2_Pin GPIO_PIN_5
+#define YELLOW2_GPIO_Port GPIOA
 #define GREEN2_Pin GPIO_PIN_6
 #define GREEN2_GPIO_Port GPIOA
 #define BIT0_Pin GPIO_PIN_7

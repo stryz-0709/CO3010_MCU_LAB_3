@@ -21,6 +21,7 @@
 #include "main.h"
 #include "software_timer.h"
 #include "global.h"
+
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 
@@ -216,8 +217,8 @@ static void MX_GPIO_Init(void)
   __HAL_RCC_GPIOB_CLK_ENABLE();
 
   /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(GPIOA, RED1_Pin|AMBER1_Pin|GREEN1_Pin|RED2_Pin
-                          |AMBER2_Pin|GREEN2_Pin|BIT0_Pin|BIT1_Pin
+  HAL_GPIO_WritePin(GPIOA, RED1_Pin|YELLOW1_Pin|GREEN1_Pin|RED2_Pin
+                          |YELLOW2_Pin|GREEN2_Pin|BIT0_Pin|BIT1_Pin
                           |BIT2_Pin|BIT3_Pin|BIT4_Pin|BIT5_Pin
                           |BIT6_Pin|BIT7_Pin|BIT8_Pin, GPIO_PIN_RESET);
 
@@ -225,12 +226,12 @@ static void MX_GPIO_Init(void)
   HAL_GPIO_WritePin(GPIOB, BIT9_Pin|BIT10_Pin|BIT11_Pin|BIT12_Pin
                           |BIT13_Pin|BIT14_Pin|BIT15_Pin, GPIO_PIN_RESET);
 
-  /*Configure GPIO pins : RED1_Pin AMBER1_Pin GREEN1_Pin RED2_Pin
-                           AMBER2_Pin GREEN2_Pin BIT0_Pin BIT1_Pin
+  /*Configure GPIO pins : RED1_Pin YELLOW1_Pin GREEN1_Pin RED2_Pin
+                           YELLOW2_Pin GREEN2_Pin BIT0_Pin BIT1_Pin
                            BIT2_Pin BIT3_Pin BIT4_Pin BIT5_Pin
                            BIT6_Pin BIT7_Pin BIT8_Pin */
-  GPIO_InitStruct.Pin = RED1_Pin|AMBER1_Pin|GREEN1_Pin|RED2_Pin
-                          |AMBER2_Pin|GREEN2_Pin|BIT0_Pin|BIT1_Pin
+  GPIO_InitStruct.Pin = RED1_Pin|YELLOW1_Pin|GREEN1_Pin|RED2_Pin
+                          |YELLOW2_Pin|GREEN2_Pin|BIT0_Pin|BIT1_Pin
                           |BIT2_Pin|BIT3_Pin|BIT4_Pin|BIT5_Pin
                           |BIT6_Pin|BIT7_Pin|BIT8_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
