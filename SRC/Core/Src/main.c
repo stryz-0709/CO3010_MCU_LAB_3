@@ -20,8 +20,7 @@
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
 #include "software_timer.h"
-#include "button.h"
-
+#include "global.h"
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 
@@ -58,7 +57,20 @@ static void MX_TIM2_Init(void);
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
+int timer0_counter = 0;
+int timer0_flag = 0;
+int TIMER_CYCLE = 10;
+void setTimer0(int duration){
+	timer0_counter = duration/TIMER_CYCLE;
+	timer0_flag = 0;
+}
 
+void timer_run(){
+	if (timer0_counter > 0){
+		timer0_counter--;
+		if (timer0_counter == 0) timer0_flag = 1;
+	}
+}
 /* USER CODE END 0 */
 
 /**
@@ -91,17 +103,18 @@ int main(void)
   MX_GPIO_Init();
   MX_TIM2_Init();
   /* USER CODE BEGIN 2 */
-
+  HAL_TIM_Base_Start_IT(&htim2);
   /* USER CODE END 2 */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
+  LED_STATE[0] = INIT_STATE;
+  LED_STATE[1] = INIT_STATE;
+
   while (1)
   {
-	  if (button1_flag){
-		  HAL_GPIO_TogglePin(RED1_GPIO_Port, RED1_Pin);
-		  button1_flag = 0;
-	  }
+	  fsm_automatic_run(0);
+	  fsm_automatic_run(1);
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
@@ -204,12 +217,22 @@ static void MX_GPIO_Init(void)
 
   /*Configure GPIO pin Output Level */
   HAL_GPIO_WritePin(GPIOA, RED1_Pin|AMBER1_Pin|GREEN1_Pin|RED2_Pin
-                          |AMBER2_Pin|GREEN2_Pin, GPIO_PIN_RESET);
+                          |AMBER2_Pin|GREEN2_Pin|BIT0_Pin|BIT1_Pin
+                          |BIT2_Pin|BIT3_Pin|BIT4_Pin|BIT5_Pin
+                          |BIT6_Pin|BIT7_Pin|BIT8_Pin, GPIO_PIN_RESET);
+
+  /*Configure GPIO pin Output Level */
+  HAL_GPIO_WritePin(GPIOB, BIT9_Pin|BIT10_Pin|BIT11_Pin|BIT12_Pin
+                          |BIT13_Pin|BIT14_Pin|BIT15_Pin, GPIO_PIN_RESET);
 
   /*Configure GPIO pins : RED1_Pin AMBER1_Pin GREEN1_Pin RED2_Pin
-                           AMBER2_Pin GREEN2_Pin */
+                           AMBER2_Pin GREEN2_Pin BIT0_Pin BIT1_Pin
+                           BIT2_Pin BIT3_Pin BIT4_Pin BIT5_Pin
+                           BIT6_Pin BIT7_Pin BIT8_Pin */
   GPIO_InitStruct.Pin = RED1_Pin|AMBER1_Pin|GREEN1_Pin|RED2_Pin
-                          |AMBER2_Pin|GREEN2_Pin;
+                          |AMBER2_Pin|GREEN2_Pin|BIT0_Pin|BIT1_Pin
+                          |BIT2_Pin|BIT3_Pin|BIT4_Pin|BIT5_Pin
+                          |BIT6_Pin|BIT7_Pin|BIT8_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
@@ -219,6 +242,15 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Pin = BUTTON1_Pin|BUTTON2_Pin|BUTTON3_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
   GPIO_InitStruct.Pull = GPIO_PULLUP;
+  HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
+
+  /*Configure GPIO pins : BIT9_Pin BIT10_Pin BIT11_Pin BIT12_Pin
+                           BIT13_Pin BIT14_Pin BIT15_Pin */
+  GPIO_InitStruct.Pin = BIT9_Pin|BIT10_Pin|BIT11_Pin|BIT12_Pin
+                          |BIT13_Pin|BIT14_Pin|BIT15_Pin;
+  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
   HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
 
 }

@@ -70,12 +70,44 @@ void Error_Handler(void);
 #define AMBER2_GPIO_Port GPIOA
 #define GREEN2_Pin GPIO_PIN_6
 #define GREEN2_GPIO_Port GPIOA
+#define BIT0_Pin GPIO_PIN_7
+#define BIT0_GPIO_Port GPIOA
 #define BUTTON1_Pin GPIO_PIN_0
 #define BUTTON1_GPIO_Port GPIOB
 #define BUTTON2_Pin GPIO_PIN_1
 #define BUTTON2_GPIO_Port GPIOB
 #define BUTTON3_Pin GPIO_PIN_2
 #define BUTTON3_GPIO_Port GPIOB
+#define BIT1_Pin GPIO_PIN_8
+#define BIT1_GPIO_Port GPIOA
+#define BIT2_Pin GPIO_PIN_9
+#define BIT2_GPIO_Port GPIOA
+#define BIT3_Pin GPIO_PIN_10
+#define BIT3_GPIO_Port GPIOA
+#define BIT4_Pin GPIO_PIN_11
+#define BIT4_GPIO_Port GPIOA
+#define BIT5_Pin GPIO_PIN_12
+#define BIT5_GPIO_Port GPIOA
+#define BIT6_Pin GPIO_PIN_13
+#define BIT6_GPIO_Port GPIOA
+#define BIT7_Pin GPIO_PIN_14
+#define BIT7_GPIO_Port GPIOA
+#define BIT8_Pin GPIO_PIN_15
+#define BIT8_GPIO_Port GPIOA
+#define BIT9_Pin GPIO_PIN_3
+#define BIT9_GPIO_Port GPIOB
+#define BIT10_Pin GPIO_PIN_4
+#define BIT10_GPIO_Port GPIOB
+#define BIT11_Pin GPIO_PIN_5
+#define BIT11_GPIO_Port GPIOB
+#define BIT12_Pin GPIO_PIN_6
+#define BIT12_GPIO_Port GPIOB
+#define BIT13_Pin GPIO_PIN_7
+#define BIT13_GPIO_Port GPIOB
+#define BIT14_Pin GPIO_PIN_8
+#define BIT14_GPIO_Port GPIOB
+#define BIT15_Pin GPIO_PIN_9
+#define BIT15_GPIO_Port GPIOB
 /* USER CODE BEGIN Private defines */
 
 /* USER CODE END Private defines */
