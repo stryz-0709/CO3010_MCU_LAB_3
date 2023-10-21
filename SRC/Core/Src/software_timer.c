@@ -8,8 +8,8 @@
 
 #include "software_timer.h"
 
-int timer_counter [2] = {0,0};
-int timer_flag [2] = {0,0};
+int timer_counter [3] = {0,0,0};
+int timer_flag [3] = {0,0,0};
 
 void setTimer(int type, int duration){
 	timer_counter[type] = duration;
@@ -27,6 +27,12 @@ void timerRun(){
 		timer_counter[1]--;
 		if(timer_counter[1] <= 0){
 			timer_flag[1] = 1;
+		}
+	}
+	if(timer_counter[2] > 0){
+		timer_counter[2]--;
+		if(timer_counter[2] <= 0){
+			timer_flag[2] = 1;
 		}
 	}
 }

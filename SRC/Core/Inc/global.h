@@ -26,6 +26,7 @@
 #define MODE_4 14
 
 extern int LED_STATE [2];
+extern int MODE;
 extern int RED_DURATION;
 extern int YELLOW_DURATION;
 extern int GREEN_DURATION;
